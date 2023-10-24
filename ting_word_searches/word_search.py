@@ -34,11 +34,7 @@ def search_by_word(word, instance):
             if instance.search(i)["nome_do_arquivo"] == file:
                 file = instance.search(i)
                 break
-        lines = []
         for line in occurrence["ocorrencias"]:
-            lines.append({
-                "linha": line["linha"],
-                "conteudo": file["linhas_do_arquivo"][line["linha"] - 1],
-            })
-        occurrence["ocorrencias"] = lines
+            index = line["linha"] - 1
+            line["conteudo"] = file["linhas_do_arquivo"][index]
     return occurrences
