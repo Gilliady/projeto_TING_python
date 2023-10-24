@@ -49,4 +49,3 @@ def test_basic_priority_queueing():
     assert response == arquivo4
     with pytest.raises(IndexError):
         pq.search(10)
-        
